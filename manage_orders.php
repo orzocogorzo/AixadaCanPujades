@@ -209,7 +209,7 @@
 							'<td class="netCol netLabel orderTotalsDesc">'+local_lang._suma+':</td>'+
 							'<td class="netCol netTotalOrder"></td>';
 						theadStr += '<th class="revisedCol">'+local_lang.ostat_revised+'</th>';
-						theadStr2 += '<td>&nbsp;</td>';
+                                               theadStr2 += '<td class="revisedCol textAlignCenter"><input id="checkboxRevisedAll "name="revisedAll" type="checkbox"/></td>';
 						
 						$('#tbl_reviseOrder thead tr').first().append(theadStr);
 						$('#tbl_reviseOrder thead tr').last().append(theadStr2);
@@ -867,12 +867,22 @@
 				});
 			});
 
-			
+                       /**
+                        * mark all product rows as revised. The status is saved in the
+                        * order_to_shop table.
+                        */
+                       $('input:checkbox[name="revisedAll"]').live('click', function (e) {
+                           var isChecked = $(this).is(':checked');
+                           $('input:checkbox[name="revisedAll"]').prop('checked', isChecked);
+                           $('input:checkbox[name="revised"]').prop('checked', isChecked)
+                               .trigger('change');
+                       });
+
 			/**
 			 *	mark an entire product row as revised. the status is saved in 
 			 *  the order_to_shop table.  
 			 */
-			$('input:checkbox[name="revised"]').live('click', function(e){
+			$('input:checkbox[name="revised"]').live('change', function(e){
 				var product_id = $(this).attr('isRevisedId');	
 				var is_revised = $(this).is(':checked')? 1:0;
 				var has_arrived = $('#ckboxArrived_'+product_id).is(':checked')? 1:0;
