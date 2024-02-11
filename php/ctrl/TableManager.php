@@ -158,6 +158,13 @@ try{
     exit;
 
   case 'edit':
+    if (isset($_REQUEST['description'])) {
+      try {
+        $_REQUEST['description'] = htmlspecialchars($_REQUEST['description']);
+      } catch (Exception) {
+        // Do nothing
+      }
+    }
     DBWrap::get_instance()->Update($_REQUEST);
     post_edit_hook($_REQUEST);
     echo '1';
