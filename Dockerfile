@@ -18,10 +18,10 @@ RUN DEBINA_FRONTEND=noninteractive \
   && rm -rf /var/lib/apt/lists/*
 
 # Set php.ini-development as system php config
-RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
+    && pear config-set php_ini $PHP_INI_DIR/php.ini
 
 # Install php extensions
-RUN pear config-set php_ini $PHP_INI_DIR/php.ini
 RUN printf "\n" | pecl install imagick
 RUN docker-php-ext-enable imagick
 RUN docker-php-ext-configure gd --with-jpeg

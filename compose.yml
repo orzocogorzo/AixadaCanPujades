@@ -5,13 +5,13 @@ networks:
     driver: bridge
 services:
   mariadb:
-    image: "bitnami/mariadb:10.6"
+    image: "mariadb:10.6"
     networks:
       - aixada
     ports:
       - "3306:3306"
     volumes:
-      - "aixadadb:/bitnami/mariadb"
+      - "aixadadb:/var/lib/mysql"
     environment:
       - ALLOW_EMPTY_PASSWORD=no
       - MARIADB_DATABASE=aixada
@@ -21,7 +21,7 @@ services:
       - MARIADB_CHARACTER_SET=utf8
       - MARIADB_COLLATE=utf8_general_ci
   phpmyadmin:
-    image: "bitnami/phpmyadmin:5"
+    image: "phpmyadmin:5"
     depends_on:
       - mariadb
     networks:
@@ -31,8 +31,9 @@ services:
     links:
       - "mariadb:database"
     environment:
-      - DATABASE_HOST=mariadb
-      - DATABASE_ALLOW_NO_PASSWORD=false
+      - PMA_HOST=mariadb
+      - PMA_USER=aixada
+      - PMA_PASSWORD=aixada
   php:
     build: .
     depends_on:
