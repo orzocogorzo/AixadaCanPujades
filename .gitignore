@@ -1,6 +1,7 @@
 aixada.host.key
 local_config/config.php
 local_config/timeline.svg
+.php-cs-fixer.cache
 *~
 vendor_t85
 vendor_t74
