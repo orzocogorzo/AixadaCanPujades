@@ -1646,10 +1646,12 @@
                                         $('#header', _printWin.document).hide();
                                     }
                                     _printWin.document.title =_title;
-                                    orderWrap.load(
+                                    orderWrap.find("main").load(
                                         'php/ctrl/Orders.php?oper=reportOrders' + _queryStr,
                                         function () {
                                             $('.loadingMsg', _printWin.document).hide();
+                                            $('.exportPreface', _printWin.document).show()
+                                            $('.incidencesTable', _printWin.document).show()
                                         }
                                     );
                                 }
