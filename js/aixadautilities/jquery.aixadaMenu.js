@@ -14,7 +14,8 @@ $(function(){
 		content: $('#navManageItems').html(),
 		showSpeed: 50,
 		width:200,
-		flyOut: true
+		flyOut: true,
+    zIndex: 10,
 	});
 
 	$("#navReport").button({
