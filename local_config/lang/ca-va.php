@@ -542,6 +542,7 @@ $Text['prdcat_driedstuff'] 		= "Coses per a picar i fruits secs";
 $Text['prdcat_paper'] 			= "Cel·lulosa i paper";		//mocadors, paper del vàter, paper de cuina
 $Text['prdcat_health'] 			= "Salut";		//paper del vàter, paper de cuina 1
 $Text['prdcat_misc']			= "Tota la resta..." ;
+$Text['category_description']   = "Categoria";
 
 
 

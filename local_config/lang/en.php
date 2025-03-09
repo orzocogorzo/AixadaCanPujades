@@ -513,6 +513,7 @@ $Text['prdcat_driedstuff'] 		= "Snacks and dried fruit";
 $Text['prdcat_paper'] 			= "Cellulose and paper";		//hankerchiefs, toilet paper, kitchen paper, 
 $Text['prdcat_health'] 			= "Health";		//hankerchiefs, toilet paper, kitchen paper, 
 $Text['prdcat_misc']			= "Everything else..." ;
+$Text['category_description']   = "Category";
 
 
 

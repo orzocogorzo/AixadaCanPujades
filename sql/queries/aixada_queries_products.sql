@@ -615,7 +615,7 @@ begin
     	
     /** get products by category_id **/
     if the_category_id > 0 then 
-    	set fromc = concat(fromc, "aixada_product_category pc,");
+    	-- set fromc = concat(fromc, "aixada_product_category pc,");
     	set wherec = concat(wherec, " and pc.id = '", the_category_id, "' and p.category_id = pc.id ");
     end if;
 	
@@ -628,6 +628,7 @@ begin
 	set @q = concat("
 	select
 		p.*,
+    pc.description as category_description,
 		round((p.unit_price * (1 + iva.percent/100) * (1 + t.rev_tax_percent/100)),2) as unit_price,
 		p.unit_price as unit_price_netto, 
 		pv.name as provider_name,	
@@ -638,6 +639,7 @@ begin
 	from
 		",fromc,"
 		aixada_product p,
+    aixada_product_category pc,
 		aixada_provider pv, 
 		aixada_rev_tax_type t,
 		aixada_iva_type iva,
@@ -645,6 +647,7 @@ begin
 	where 
 		pv.id = p.provider_id	
 		",wherec,"
+    and p.category_id = pc.id
 		and p.rev_tax_type_id = t.id
 		and p.iva_percent_id = iva.id 
 	order by p.name asc, p.id asc;");

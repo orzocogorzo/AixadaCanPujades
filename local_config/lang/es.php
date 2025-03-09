@@ -547,7 +547,7 @@ $Text['prdcat_driedstuff'] 		= "Picoteo y frutos secos";
 $Text['prdcat_paper'] 			= "Celulosa y papel";		//pañuelos, papel del váter, papel de cocina
 $Text['prdcat_health'] 			= "Salud";		//papel del váter, papel de cocina
 $Text['prdcat_misc']			= "El resto..." ;
-
+$Text['category_description']   = "Categoría";
 
 
 
