@@ -476,18 +476,18 @@
 				//orderable
 				} else if (tds.eq(3).text() == "2"){
 					tds.eq(3).text("<?=$Text['orderable'];?>");
-					tds.eq(10).text(""); //delete stock info
-					tds.eq(11).text("");
+					tds.eq(11).text(""); //delete stock info
+					tds.eq(12).text("");
 				//order notres
 				} else if (tds.eq(3).text() == "3"){
 					tds.eq(3).text("<?=$Text['order_notes'];?>");
-					tds.eq(5).text(""); //delete price
-					tds.eq(6).text("");
+					tds.eq(6).text(""); //delete price
 					tds.eq(7).text("");
 					tds.eq(8).text("");
-					tds.eq(9).text(""); // delete units
-					tds.eq(10).text(""); //delete stock info
-					tds.eq(11).text("");
+					tds.eq(9).text("");
+					tds.eq(10).text(""); // delete units
+					tds.eq(11).text(""); //delete stock info
+					tds.eq(12).text("");
 				}
 
 				//active
@@ -1615,6 +1615,8 @@
 									<th class="clickable"><p class="floatLeft"><?php echo $Text['orderable_type']; ?></p><span class="ui-icon ui-icon-triangle-2-n-s"></span></th>
 									<th class="clickable"><p class="floatLeft"><?php echo $Text['active']; ?></p></th>
 									
+									<th class="clickable"><p class="floatLeft"><?php echo $Text['category_description'];?></p><span class="ui-icon ui-icon-triangle-2-n-s"></span></th>						
+
 									<th class="clickable"><p class="textAlignRight"><?php echo $Text['price_net'];?> </p></th>
 									<th class="clickable"><p class="textAlignCenter"><?php echo $Text['revtax_abbrev']; ?></p></th>
 									<th class="clickable"><p class="textAlignCenter"><?php echo $Text['iva']; ?></p></th>
@@ -1636,6 +1638,7 @@
 									<td title="<?php echo $Text['click_row_edit']; ?>">{name}</td>
 									<td>{orderable_type_id}</td>
 									<td><p class="textAlignCenter iconContainer">{active}</p></td>
+									<td>{category_description}</td>
 									<td><p class="textAlignRight">{unit_price_netto}</p> </td>
 									<td><p class="textAlignCenter">{rev_tax_percent}%</p></td>
 									<td><p class="textAlignCenter">{iva_percent}%</p></td>
