@@ -789,7 +789,7 @@ function array_to_XML($ass_array, $field_formats = null) {
             }
             $strXML .= "<{$field} f=\"{$field}\">{$value_f}</{$field}>";
         } else {
-            if ($field == 'description' and isset($Text[$value])) {
+            if (($field == 'description' || preg_match('/^[a-z]+_description$/', $field)) and isset($Text[$value])) {
                 $value = $Text[$value];
             }
             $strXML .= "<{$field} f=\"{$field}\"><![CDATA[".
